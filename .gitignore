@@ -4,9 +4,7 @@ server/node_modules/
 client/node_modules/
 
 # environment files
-client/.env
 server/.env
-.env
 .env.test
 
 # build output directories
