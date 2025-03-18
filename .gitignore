@@ -1,0 +1,57 @@
+# node modules
+node_modules/
+server/node_modules/
+client/node_modules/
+
+# environment files
+client/.env
+server/.env
+.env
+.env.test
+
+# build output directories
+client/build/
+dist/
+out/
+.next/
+.nuxt/
+__sapper__/
+static/
+
+# serverless directories
+server/.serverless/
+
+# docker volumes or data storage
+**/data/
+**/volumes/
+
+# logs and databases
+*.log
+*.sql
+*.db
+
+# output of 'npm pack'
+*.tgz
+
+# yarn integrity
+.yarn-integrity
+
+# cache directories
+.cache/
+.parcel-cache/
+.rollup.cache/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE and editor folders/temp files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# documentations
+server/doc/

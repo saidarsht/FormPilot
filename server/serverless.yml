@@ -1,0 +1,39 @@
+service: formpilot-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: dev
+  versionFunctions: false
+  environment:
+    DATABASE_URL: ${ssm:/formpilot/DATABASE_URL}
+    JWT_SECRET: ${ssm:/formpilot/JWT_SECRET}
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          path: api/{proxy+}
+          method: ANY
+          cors: true
+
+plugins:
+  - serverless-offline
+
+package:
+  individually: true
+  excludeDevDependencies: true
+  include:
+    - node_modules/**
+  exclude:
+    - .git/**
+    - .gitignore
+    - README.md
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+    lambdaPort: 4002
+    noPrependStageInUrl: true
