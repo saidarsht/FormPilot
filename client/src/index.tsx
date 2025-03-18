@@ -4,7 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "@fontsource/oxygen";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
+injectSpeedInsights();
 console.log("🔥 React App is starting...");
 
 const rootElement = document.getElementById("root");
