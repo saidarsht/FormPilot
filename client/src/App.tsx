@@ -16,16 +16,16 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/submit/:formId" element={<FormSubmit />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Login />} />
           <Route path="/form-builder" element={<FormBuilder />} />
           <Route path="/forms" element={<FormList />} />
           <Route path="/preview/:formId" element={<PreviewForm />} />
           <Route path="/edit/:formId" element={<EditForm />} />
-          <Route path="/submit/:formId" element={<FormSubmit />} />
           <Route path="/responses/:formId" element={<FormResponses />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
         </Route>
       </Routes>
     </Router>
