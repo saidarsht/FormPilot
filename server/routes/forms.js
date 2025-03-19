@@ -48,7 +48,26 @@ router.get("/", authenticate, async (req, res) => {
 });
 
 // get form by id
-router.get("/:id", authenticate, async (req, res) => {
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { rows } = await pool.query("SELECT * FROM forms WHERE id = $1", [
+      id,
+    ]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ error: "Form Not Found" });
+    }
+
+    res.json(rows[0]);
+  } catch (error) {
+    console.error("Error Fetching Form:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// get form by id (authenticated route)
+router.get("/secure/:id", authenticate, async (req, res) => {
   try {
     const { id } = req.params;
     const { rows } = await pool.query(

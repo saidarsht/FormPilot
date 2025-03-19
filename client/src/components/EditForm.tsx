@@ -40,7 +40,7 @@ const EditForm = () => {
     }
 
     api
-      .get(`${API_BASE}/forms/${formId}`, {
+      .get(`${API_BASE}/forms/secure/${formId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

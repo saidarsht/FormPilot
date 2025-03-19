@@ -20,7 +20,7 @@ const PreviewForm = () => {
 
   useEffect(() => {
     api
-      .get(`${API_BASE}/forms/${formId}`, {
+      .get(`${API_BASE}/forms/secure/${formId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {

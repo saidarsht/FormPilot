@@ -38,7 +38,7 @@ const FormResponses = () => {
       })
       .catch((err) => console.error("Error Fetching Responses:", err));
     api
-      .get(`${API_BASE}/forms/${formId}`)
+      .get(`${API_BASE}/forms/secure/${formId}`)
       .then((res) => {
         setFormName(res.data.form_name);
         const fieldMap: { [key: string]: string } = {};
